@@ -14,11 +14,10 @@ end
 puts arr
 
 # третье задание
-arr = [0, 1, 1]
-i = 3
+arr = [0, 1]
+i = 2
 while i < 100 do
-  f = arr[i - 1] + arr[i - 2]
-  arr << f
+  arr << arr[-1] + arr[-2]
   i += 1
 end
 puts "[#{arr.join(', ')}]"
