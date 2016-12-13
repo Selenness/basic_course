@@ -10,5 +10,6 @@ loop do
 end
 sum = 0
 purchases.each_value { |info| sum += info[:amount] }
-puts purchases
+
+purchases.each {|name_product, info| puts "#{name_product} - #{info[:amount]}"}
 puts  "Сумма всех покупок - #{sum}"

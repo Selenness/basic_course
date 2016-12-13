@@ -12,16 +12,8 @@ number_day = numb + day
 puts number_day
 
 def is_leap(year)
-  if year % 4 == 0
-    if year % 100 == 0
-      if year % 400 == 0
-         1
-      else
-        0
-      end
-    else
-      1
-    end
+  if (year % 400 == 0) || ((year % 4 == 0 ) && ( year % 100 != 0 ))
+    1
   else
     0
   end

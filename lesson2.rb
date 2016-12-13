@@ -14,16 +14,10 @@ end
 puts arr
 
 # третье задание
-arr = []
-i = 0
+arr = [0, 1, 1]
+i = 3
 while i < 100 do
-  if i == 0
-    f = 0
-  elsif i > 0 && i < 3
-    f = 1
-  else
-    f = arr[i - 1] + arr[i - 2]
-  end
+  f = arr[i - 1] + arr[i - 2]
   arr << f
   i += 1
 end
@@ -36,12 +30,9 @@ vowels = %w(a e i o u y)
 vows = {}
 
 alf.each_with_index do |letter, i|
-  vowels.each do |vowel|
-    if letter == vowel
-     vows[vowel] = i + 1
-     break
+    if vowels.include?(letter)
+     vows[letter] = i + 1
     end
-  end
 end
 puts vows
 
