@@ -7,6 +7,7 @@ class Train
     @type = type
     @carriage = carriage
     @speed = 0
+    @current_station = 0
   end
 
   def speed_up(speed)
@@ -40,11 +41,11 @@ class Train
   end
 
   def move_to_next
-    @route[station] = @route[station + 1]
+    @current_station = @route[station + 1]
   end
 
   def move_to_back
-    @route[station] = @route[station - 1]
+    @current_station = @route[station - 1]
   end
 
   def show_station
