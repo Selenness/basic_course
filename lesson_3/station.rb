@@ -1,5 +1,5 @@
 class Station
-  attr_accessor :name
+  attr_accessor :name, :trains
 
   def initialize(name)
     @name = name
@@ -14,9 +14,8 @@ class Station
     @trains.delete(train)
   end
 
-  def show_trains_type_list(type = nil)
-    @trains.each { |t| puts t.number if type nil? || t.type}
+  def show_trains_type_list(type=nil)
+    @trains.each { |t| puts t.number if type == nil? || t.type }
   end
-
 
 end

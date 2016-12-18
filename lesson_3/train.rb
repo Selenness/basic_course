@@ -1,13 +1,13 @@
 class Train
   attr_accessor :route
-  attr_reader :number, :type, :carriage, :speed
+  attr_reader :number, :type, :carriage, :speed, :station_ind
 
   def initialize(number, type, carriage)
     @number = number
     @type = type
     @carriage = carriage
     @speed = 0
-    @current_station = @route.first
+    @station_ind = 0
   end
 
   def speed_up(speed)
@@ -40,25 +40,37 @@ class Train
     end
   end
 
+  def current_station
+    @route.stations[@station_ind]
+  end
+
+  def previous_station
+    @route.stations[@station_ind - 1]
+  end
+
+  def next_station
+     @route.stations[@station_ind + 1] if @station_ind < @route.stations.size
+  end
+
   def move_to_next
-    @current_station = @route[station] + @route[station + 1]
+    if @station_ind + 1 < @route.stations.size
+      @station_ind += 1
+    else
+      puts "Это последняя станция"
+    end
   end
 
   def move_to_back
-    @current_station = @route[station] - @route[station - 1]
-  end
-
-  def show_station
-    @route.each do |station|
-      if @route.first
-        puts "Текущая станция - #{@route[station]}. Следующая станция - #{@route[station + 1]}."
-      else
-        if @route.last
-          puts "Предыдущая станция - #{@route[station - 1]}. Текущая станция - #{@route[station]}."
-        else
-          puts "Предыдущая станция - #{@route[station - 1]}. Текущая станция - #{@route[station]}. Следующая станция - #{@route[station + 1]}"
-        end
-      end
+    if @station_ind > 0
+      @station_ind -= 1
+    else
+      puts "Это первая станция"
     end
   end
+
+  def set_route(route)
+    @route = route
+  end
+
 end
+
