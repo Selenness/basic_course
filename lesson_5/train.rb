@@ -9,7 +9,7 @@ class Train
 
 
   def self.find(number)
-    @@trains.key?(number) ? @@trains[number] : puts('Поезда с таким номером нет')
+    @@trains.key?(number) ? @@trains[number] : nil
   end
 
 
