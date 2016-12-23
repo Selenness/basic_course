@@ -2,8 +2,6 @@ class Route
   attr_reader :start_station, :last_station, :station
   attr_accessor :stations
 
-  STATION_FORMAT = /[А-Я][а-я]+/
-
   def initialize(start_station, last_station)
     @start_station = start_station
     @last_station = last_station
@@ -13,6 +11,8 @@ class Route
 
   def valid?
     validate!
+  rescue
+    false
   end
 
 
@@ -35,7 +35,7 @@ class Route
 
   private
   def validate!
-    raise "Станции должны быть записаны Хххххх" if @start_station !~ STATION_FORMAT
-    raise "Станции должны быть записаны Хххххх" if @last_station !~ STATION_FORMAT
+    raise "У первой станции неверный класс объекта" if @start_station.class != Station
+    raise "У последней станции неверный класс объекта" if @last_station.class != Station
   end
 end

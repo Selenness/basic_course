@@ -22,8 +22,14 @@ class Train
     @station_ind = 0
     @@trains[number] = self
     register_instance
-    validate!
+    valid?
     puts "Поезд №#{number}: \"Я родился!\""
+  end
+
+  def valid?
+    validate!
+  rescue
+    false
   end
 
 

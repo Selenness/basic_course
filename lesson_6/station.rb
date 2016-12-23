@@ -20,6 +20,8 @@ class Station
 
   def valid?
     validate!
+  rescue
+    false
   end
 
   def accept_train(train)
