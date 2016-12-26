@@ -113,7 +113,7 @@ class Train
 
   def validate!
     raise "Номер поезда не введен" if number.class != String || number.size == 0
-    raise "Не верный формат номера поезда" if number !~ NUMBER_FORMAT
+    raise "Неверный формат номера поезда" if number !~ NUMBER_FORMAT
     true
   end
 

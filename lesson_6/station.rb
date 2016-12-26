@@ -38,7 +38,7 @@ class Station
 
   private
   def validate!
-    raise "Не верный формат названия станции" if name !~ NAME_FORMAT
+    raise "Неверный формат названия станции" if name !~ NAME_FORMAT
     true
   end
 

@@ -6,13 +6,7 @@ class Route
     @start_station = start_station
     @last_station = last_station
     @stations = [start_station, last_station]
-    valid?
-  end
-
-  def valid?
     validate!
-  rescue
-    false
   end
 
 
