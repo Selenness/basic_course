@@ -12,10 +12,10 @@ class Station
 
   def initialize(name)
     @name = name
+    validate!
     @trains = []
     puts "Станция #{name} создана."
     @@instances[name] = self
-    valid?
   end
 
   def valid?

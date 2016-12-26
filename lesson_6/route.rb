@@ -5,10 +5,15 @@ class Route
   def initialize(start_station, last_station)
     @start_station = start_station
     @last_station = last_station
-    @stations = [start_station, last_station]
     validate!
+    @stations = [start_station, last_station]
   end
 
+  def valid?
+    validate!
+  rescue
+    false
+  end
 
   def add_station(station, number)
     if @stations.include?(station)

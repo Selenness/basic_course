@@ -17,12 +17,12 @@ class Train
 
   def initialize(number)
     @number = number
+    validate!
     @carriage = []
     @speed = 0
     @station_ind = 0
     @@trains[number] = self
     register_instance
-    valid?
     puts "Поезд №#{number}: \"Я родился!\""
   end
 
