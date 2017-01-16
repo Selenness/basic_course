@@ -36,6 +36,10 @@ class Station
     @trains.each { |t| puts "\tПоезд - #{t.number}" if type == nil? || t.type }
   end
 
+  def each_train(&block)
+    @trains.each {|train| yield train}
+  end
+
   private
   def validate!
     raise "Неверный формат названия станции" if name !~ NAME_FORMAT
