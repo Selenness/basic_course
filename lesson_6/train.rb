@@ -49,6 +49,10 @@ class Train
     end
   end
 
+  def get_carriage(number)
+    @carriage.find{|car| car.number == number}
+  end
+
   def add_carriage(carriage)
     if stopped?
       if self.type == carriage.type
@@ -105,6 +109,14 @@ class Train
 
   def set_route(route)
     @route = route
+  end
+
+  def each_carriage(&block)
+    @carriage.each {|car| yield car}
+  end
+
+  def info
+    puts "Поезд №#{@number}, #{@type == "cargo" ? "грузовой" : "пассажирский"}, вагонов: #{@carriage.length}"
   end
 
   # этот метод нельзя будет вызвать из клиентского кода, но надо чтобы его наследовли подклассы
