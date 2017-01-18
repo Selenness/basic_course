@@ -1,5 +1,4 @@
 class Carriage
-
   include Producer
   include InstanceCounter
 
@@ -11,6 +10,7 @@ class Carriage
   end
 
   def info
-    puts "Вагон №#{@number}, #{@type == "cargo" ? "грузовой" : "пассажирский"}"
+    puts 'Вагон №#{@number}, #{@type == "cargo" ? "грузовой" : "пассажирский"}'
   end
+
 end

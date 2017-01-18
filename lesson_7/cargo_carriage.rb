@@ -1,10 +1,9 @@
 class CargoCarriage < Carriage
-
   attr_reader :total_space, :taken_space
 
   def initialize(number, total_space)
     super
-    @type = "cargo"
+    @type = 'cargo'
     @total_space = total_space
     @taken_space = 0
   end
@@ -13,7 +12,7 @@ class CargoCarriage < Carriage
     if @taken_space + amount <= @total_space
       @taken_space += amount
     else
-      throw "Not enough empty space"
+      throw 'Not enough empty space'
     end
   end
 
@@ -26,4 +25,5 @@ class CargoCarriage < Carriage
     puts "Объем всего - #{@total_space}"
     puts "Свободно - #{available_space}"
   end
+
 end

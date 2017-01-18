@@ -43,14 +43,14 @@ class Train
 
   def stop
     if stopped?
-      puts "Поезд уже остановлен"
+      puts 'Поезд уже остановлен'
     else
       self.speed = 0
     end
   end
 
   def get_carriage(number)
-    @carriage.find{|car| car.number == number}
+    @carriage.find{ |car| car.number == number }
   end
 
   def add_carriage(carriage)
@@ -59,10 +59,10 @@ class Train
         @carriage << carriage
         puts "Вагон #{carriage.number} прицеплен к поезду!"
       else
-        puts "Не подходящий тип вагона"
+        puts 'Не подходящий тип вагона'
       end
     else
-      puts "Остановите поезд"
+      puts 'Остановите поезд'
     end
   end
 
@@ -70,12 +70,12 @@ class Train
     if stopped?
       if @carriage.size > 0
         car = @carriage.pop
-        puts "Вагон #{car.number} отцеплен от поезда. Осталось #{@carriage.length} вагонов."
+        puts "Вагон #{car.number} отцеплен. Осталось #{@carriage.length} вагонов."
       else
-        puts "Вагонов больше нет"
+        puts 'Вагонов больше нет'
       end
     else
-     puts "Остановите поезд"
+     puts 'Остановите поезд'
     end
   end
 
@@ -88,14 +88,14 @@ class Train
   end
 
   def next_station
-     @route.stations[@station_ind + 1] if @station_ind < @route.stations.size
+    @route.stations[@station_ind + 1] if @station_ind < @route.stations.size
   end
 
   def move_to_next
     if @station_ind + 1 < @route.stations.size
       @station_ind += 1
     else
-      puts "Это последняя станция"
+      puts 'Это последняя станция'
     end
   end
 
@@ -103,11 +103,11 @@ class Train
     if @station_ind > 0
       @station_ind -= 1
     else
-      puts "Это первая станция"
+      puts 'Это первая станция'
     end
   end
 
-  def set_route(route)
+  def add_route(route)
     @route = route
   end
 
@@ -119,18 +119,17 @@ class Train
     puts "Поезд №#{@number}, #{@type == "cargo" ? "грузовой" : "пассажирский"}, вагонов: #{@carriage.length}"
   end
 
-  # этот метод нельзя будет вызвать из клиентского кода, но надо чтобы его наследовли подклассы
-
   protected
 
   def validate!
-    raise "Номер поезда не введен" if number.class != String || number.size == 0
-    raise "Неверный формат номера поезда" if number !~ NUMBER_FORMAT
+    raise 'Номер поезда не введен' if @number.class != String || number.size == 0
+    raise 'Неверный формат номера поезда' if @number !~ NUMBER_FORMAT
     true
   end
 
   def stopped?
     @speed = 0
   end
+
 end
 

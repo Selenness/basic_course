@@ -1,10 +1,9 @@
 class Station
-
   attr_accessor :name, :trains
 
   @@instances = {}
 
-  NAME_FORMAT = /[А-Я][а-я]+/
+  NAME_FORMAT = /[A-Z][a-z]+/
 
   def self.all
     @@instances
@@ -32,15 +31,16 @@ class Station
     @trains.delete(train)
   end
 
-  def show_trains_type_list(type=nil)
+  def show_trains_type_list( type=nil )
     @trains.each { |t| puts "\tПоезд - #{t.number}" if type == nil? || t.type }
   end
 
   def each_train(&block)
-    @trains.each {|train| yield train}
+    @trains.each { |train| yield train }
   end
 
   private
+
   def validate!
     raise "Неверный формат названия станции" if name !~ NAME_FORMAT
     true

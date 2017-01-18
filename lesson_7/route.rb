@@ -17,7 +17,7 @@ class Route
 
   def add_station(station, number)
     if @stations.include?(station)
-      puts "Такая станция уже есть"
+      puts 'Такая станция уже есть'
     else
       @stations.insert(number -1, station)
     end
@@ -34,7 +34,8 @@ class Route
 
   private
   def validate!
-    raise "У первой станции неверный класс объекта" if @start_station.class != Station
-    raise "У последней станции неверный класс объекта" if @last_station.class != Station
+    raise 'У первой станции неверный класс объекта' if @start_station.class != Station
+    raise 'У последней станции неверный класс объекта' if @last_station.class != Station
   end
+
 end

@@ -1,10 +1,9 @@
 class PassengCarriage < Carriage
-
   attr_reader :total_seats, :taken_seats
 
   def initialize(number, total_seats)
     super
-    @type = "passeng"
+    @type = 'passeng'
     @total_seats = total_seats
     @taken_seats = 0
   end
@@ -26,4 +25,5 @@ class PassengCarriage < Carriage
     puts "Мест всего - #{@total_seats}"
     puts "Свободно - #{spare_seats}"
   end
+
 end
