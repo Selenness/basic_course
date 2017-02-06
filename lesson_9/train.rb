@@ -1,12 +1,7 @@
-require 'producer'
-require 'instance_counter'
-require 'my_accessor'
-require 'validation'
-
 class Train
   include Producer
   include InstanceCounter
-  extend MyAccessor
+  include MyAccessor
 
   include Validation
 
